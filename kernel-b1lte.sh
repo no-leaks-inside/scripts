@@ -90,6 +90,7 @@ function clone {
 	echo "★★Clang Done, Now Its time for AnyKernel .."
 	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git
 	echo "★★Cloning Kinda Done..!!!"
+        CD ext*
 }
 
 ##------------------------------------------------------##
@@ -107,6 +108,7 @@ function exports {
 	export BOT_MSG_URL="https://api.telegram.org/bot$token/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
 	export PROCS=$(nproc --all)
+        source usr/magisk/update_magisk.sh
 }
 
 ##---------------------------------------------------------##
