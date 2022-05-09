@@ -26,13 +26,10 @@
 
 # The defult directory where the kernel should be placed
 KERNEL_DIR=$PWD
-# The name of the Kernel, to name the ZIP
-if [ $CIRCLE_BRANCH == "Lineage-19.1" ]
-then
-	ZIPNAME="Andromeda-12.1"
-else 
-	ZIPNAME="Andromeda-legacy"
-fi
+
+CIRCLE_BUILD_NUM="00001"
+
+ZIPNAME="Andromeda-12.1"
 
 # The name of the device for which the kernel is built
 MODEL="Galaxy S10/N10"
@@ -42,7 +39,7 @@ DEVICE="beyond1lte"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=exynos9820-beyond0lte_defconfig
+DEFCONFIG=exynos9820-beyond1lte_defconfig
 
 # Clean source prior building. 1 is NO(default) | 0 is YES
 INCREMENTAL=0
@@ -62,7 +59,7 @@ if [ $CI == true ]
 then
 	if [ $CIRCLECI == true ]
 	then
-		export KBUILD_BUILD_VERSION=$CIRCLE_BUILD_NUM
+		export KBUILD_BUILD_VERSION=0001
 	fi
 fi
 
@@ -90,7 +87,7 @@ function clone {
 	echo "★★Clang Done, Now Its time for AnyKernel .."
 	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git
 	echo "★★Cloning Kinda Done..!!!"
-        CD ext*
+        cd ext*
 }
 
 ##------------------------------------------------------##
@@ -135,7 +132,7 @@ function tg_post_build {
 
 function build_kernel {
 
-	tg_post_msg "<b>$CIRCLE_BUILD_NUM CI Build Triggered</b>%0A<b>Date : </b><code>$(TZ=Asia/Jakarta date)</code>%0A<b>Device : </b><code>$MODEL [$DEVICE]</code>%0A<b>Pipeline Host : </b><code>CircleCI</code>%0A<b>Host Core Count : </b><code>$PROCS</code>%0A<b>Compiler Used : </b><code>$KBUILD_COMPILER_STRING</code>%0a<b>Branch : </b><code>$CIRCLE_BRANCH</code>%0A<b>Top Commit : </b><code>$COMMIT_HEAD</code>%0A<b>Status : </b>#Nightly" "$CHATID"
+	tg_post_msg "<b>$CIRCLE_BUILD_NUM CI Build Triggered</b>%0A<b>Date : </b><code>$(TZ=Asia/Jakarta date)</code>%0A<b>Device : </b><code>$MODEL [$DEVICE]</code>%0A<b>Pipeline Host : </b><code>CircleCI</code>%0A<b>Host Core Count : </b><code>$PROCS</code>%0A<b>Compiler Used : </b><code>$KBUILD_COMPILER_STRING</code>%0a<b>Branch : </b><code>lineage-19.1</code>%0A<b>Top Commit : </b><code>$COMMIT_HEAD</code>%0A<b>Status : </b>#Nightly" "$CHATID"
 
 
 	make O=out $DEFCONFIG
