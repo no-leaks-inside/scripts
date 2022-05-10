@@ -87,7 +87,7 @@ function clone {
 	echo "★★Clang Done, Now Its time for AnyKernel .."
 	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git
 	echo "★★Cloning Kinda Done..!!!"
-        cd ext*
+        cd exy*
 }
 
 ##------------------------------------------------------##
