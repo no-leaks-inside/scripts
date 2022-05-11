@@ -61,8 +61,12 @@ cp out/target/product/d2x/DerpFest*.zip ./dump
 
 cp out/target/product/beyond0lte/beyond0lte.json ./dump
 cp out/target/product/beyond1lte/beyond1le.json ./dump
-cp out/target/product/beyond2lte/beyond2lte.on ./dump
-cp out/target/product/beyondx/beyondxjson
-cp out/target/product/d1/d1son
-cp out/target/product/d2s/d2sn
-cp out/target/product/d2x/d2xon
+cp out/target/product/beyond2lte/beyond2lte.json ./dump
+cp out/target/product/beyondx/beyondx.json ./dump
+cp out/target/product/d1/d1.json ./dump
+cp out/target/product/d2s/d2.json ./dump
+cp out/target/product/d2x/d2x.json ./dump
+
+## Done ##
+
+echo "I: - Build and dump was succeded !"
