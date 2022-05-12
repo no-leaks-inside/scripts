@@ -69,4 +69,4 @@ cp out/target/product/d2x/d2x.json ./dump
 
 ## Done ##
 
-echo "I: - Build and dump was succeded !"
+echo "I: - Build and dump was succeded for S10/N10 !"
