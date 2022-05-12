@@ -16,6 +16,13 @@ git clone https://github.com/victor4cris/local_manifest -b S10-LOS ./.repo/local
 
 repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j8
 
+## BT Calls FIX ##
+
+echo "Applying BT call patch";
+cd system/bt;
+git apply ../../device/samsung/exynos9820-common/.patch/BTCalls-On-Samsung.patch;
+cd -
+
 ## Build ROM S10/N10 ##
 . build/envsetup.sh
 
